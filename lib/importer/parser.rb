@@ -8,11 +8,11 @@ module Importer
       extension = File.extname(file)[1..-1]
 
       if extension
-        klass = extension.camelize
+        klass = extension.capitalize
 
         if Importer::Parser.const_defined?(klass.to_sym)
-          klass = "Importer::Parser::#{klass}".constantize
-          return klass
+          #klass = "Importer::Parser::#{klass}".constantize
+          return Importer::Parser::Csv
         end
       end
 
