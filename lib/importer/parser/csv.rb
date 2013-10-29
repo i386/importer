@@ -7,7 +7,7 @@ module Importer
       def run
         @data = []
 
-        data = CSV.read(@file, :skip_blanks => true)
+        data = CSV.read(@file, :skip_blanks => true, :encoding => 'windows-1251:utf-8')
 
         unless data.empty?
           attributes = data.shift
